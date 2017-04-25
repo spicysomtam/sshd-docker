@@ -1,4 +1,4 @@
-FROM debian:jessie-slim
+FROM debian:jessie
 LABEL maintainer="alastair@alastair-munro.com" \
   description="sshd based image for development. sshd running keeps the docker container running."
 RUN apt-get update --fix-missing && \
