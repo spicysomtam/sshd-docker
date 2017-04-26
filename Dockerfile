@@ -7,7 +7,8 @@ RUN apt-get update --fix-missing && \
   mkdir /var/run/sshd && \
   echo 'root:root' | chpasswd && \
   sed -i 's/PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-  sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+  sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
+  mkdir /root/.ssh && chown root:root /root/.ssh && chmod 600 /root/.ssh && touch /root/.ssh/authorized_keys
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
