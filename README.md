@@ -33,6 +33,10 @@ Then ssh to it; password is 'root':
 ssh root@172.17.0.2
 ```
 
-Finally add your public key to .ssh/authorized_keys in the container so you don't have to enter the password all the time.
+Finally add your public key to .ssh/authorized_keys in the container so you don't have to enter the password all the time. Something like:
+
+```
+cat ~/.ssh/id_rsa.pub |ssh root@172.17.0.2 "cat >> .ssh/authorized_keys"
+```
 
 If you are an admin and know all this; apologies in advance!
